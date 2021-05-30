@@ -34,8 +34,9 @@ def console_entry(initArgumentParser):
         return www
     return decorate
 
-def create_sub_parser(subparsers, cmd_flag, name, docs, init_ap):
+
+def create_sub_parser(subparsers, subgroup, name, docs, init_ap):
     ap = subparsers.add_parser(name, help = docs)
-    ap.add_argument('--' + cmd_flag, default = name)
+    ap.add_argument('--' + subgroup, default = name)
     init_ap(ap)
     return subparsers
